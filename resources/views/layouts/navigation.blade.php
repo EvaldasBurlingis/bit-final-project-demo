@@ -8,6 +8,12 @@
                     <x-nav-link :href="route('customers')" :active="request()->routeIs('customers')">
                         {{ __('Customers') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('countries')" :active="request()->routeIs('countries')">
+                        {{ __('Countries') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('cities')" :active="request()->routeIs('cities')">
+                        {{ __('Cities') }}
+                    </x-nav-link>
                 </div>
             </div>
 

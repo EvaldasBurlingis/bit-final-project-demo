@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/customers', [CustomerController::class, 'index'])->middleware(['auth'])->name('customers');
-
 Route::get('/customer/create', [CustomerController::class, 'create'])->middleware(['auth']);
 Route::post('/customer/create', [CustomerController::class, 'store'])->middleware(['auth']);
-
 Route::get('/customer/{id}', [CustomerController::class, 'show'])->middleware(['auth']);
 Route::patch('/customer/{id}', [CustomerController::class, 'edit'])->middleware(['auth']);
 Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->middleware(['auth']);
 
+
+
+Route::get('/countries', [CountryController::class, 'index'])->middleware(['auth'])->name('countries');
+Route::get('/country/create', [CountryController::class, 'create'])->middleware(['auth']);
+Route::post('/country/create', [CountryController::class, 'store'])->middleware(['auth']);
+Route::get('/country/{id}', [CountryController::class, 'show'])->middleware(['auth']);
+Route::get('/country/{id}/edit', [CountryController::class, 'show_edit'])->middleware(['auth']);
+Route::patch('/country/{id}', [CountryController::class, 'edit'])->middleware(['auth']);
+
+
+Route::get('/cities', [CityController::class, 'index'])->middleware(['auth'])->name('cities');
 
 
 require __DIR__.'/auth.php';
