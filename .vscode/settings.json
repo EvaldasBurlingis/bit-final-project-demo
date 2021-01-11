@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "travel",
+            "database": "${workspaceFolder:bit-test-project}/database/database.sqlite"
+        }
+    ]
+}
