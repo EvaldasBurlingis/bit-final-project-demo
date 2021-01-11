@@ -17,7 +17,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 relative">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -30,7 +30,17 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
+
             </main>
+
+            <div class="fixed bottom-2 right-2">
+                @if (session('success'))
+                    <div class="bg-green-500 mx-8 px-8 py-4 text-white rounded-md font-semibold">
+                        {{ session('success') }}
+                    </div>
+                @endif
+            </div>
+            
         </div>
     </body>
 </html>

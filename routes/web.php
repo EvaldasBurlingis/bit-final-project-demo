@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/customers', [CustomerController::class, 'index'])->middleware(['auth'])->name('customers');
+
+Route::get('/customer/create', [CustomerController::class, 'create'])->middleware(['auth']);
+Route::post('/customer/create', [CustomerController::class, 'store'])->middleware(['auth']);
+
+Route::get('/customer/{id}', [CustomerController::class, 'show'])->middleware(['auth']);
+Route::patch('/customer/{id}', [CustomerController::class, 'edit'])->middleware(['auth']);
+Route::delete('/customer/{id}', [CustomerController::class, 'destroy'])->middleware(['auth']);
+
+
 
 require __DIR__.'/auth.php';
