@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CustomerController;
 
@@ -33,6 +34,12 @@ Route::patch('/country/{id}', [CountryController::class, 'edit'])->middleware(['
 
 
 Route::get('/cities', [CityController::class, 'index'])->middleware(['auth'])->name('cities');
+Route::get('/city/create', [CityController::class, 'create'])->middleware(['auth']);
+Route::post('/city/create', [CityController::class, 'store'])->middleware(['auth']);
+Route::get('/city/{id}', [CityController::class, 'show'])->middleware(['auth']);
+Route::patch('/city/{id}', [CityController::class, 'edit'])->middleware(['auth']);
+Route::delete('/city/{id}', [CityController::class, 'destroy'])->middleware(['auth']);
+
 
 
 require __DIR__.'/auth.php';

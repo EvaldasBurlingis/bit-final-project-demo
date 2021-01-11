@@ -28,22 +28,22 @@
                         <tbody x-ref="tbody">
                             @foreach ($customers as $c)
                                 <tr class="border-b border-gray-100 hover:bg-gray-100">
-                                        <td class="p-4">{{ $c->firstname }} {{ $c->lastname }}</td>
-                                        <td class="p-4">{{ $c->email }}</td>
-                                        <td class="p-4">{{ $c->telephone }}</td>
-                                        <td class="p-4">{{ $c->country->name }}</td>
-                                        <td class="p-4">
-                                            <a href="/customer/{{ $c->id }}" class="cursor-pointer text-blue-600 hover:text-blue-700">
-                                                Edit
-                                            </a>
-                                        </td>
-                                        <td class="p-4">                      
-                                            <form action="/customer/{{ $c->id }}" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                                <input type="submit" value="Delete" class="cursor-pointer text-red-600 hover:text-red-700 bg-white">
-                                            </form>
-                                        </td>
+                                    <td class="p-4">{{ $c->firstname }} {{ $c->lastname }}</td>
+                                    <td class="p-4">{{ $c->email }}</td>
+                                    <td class="p-4">{{ $c->telephone }}</td>
+                                    <td class="p-4">{{ $c->country->name }}</td>
+                                    <td class="p-4">
+                                        <a href="/customer/{{ $c->id }}" class="cursor-pointer text-blue-600 hover:text-blue-700">
+                                            Edit
+                                        </a>
+                                    </td>
+                                    <td class="p-4">                      
+                                        <form action="/customer/{{ $c->id }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="submit" value="Delete" class="cursor-pointer text-red-600 hover:text-red-700 bg-white">
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
