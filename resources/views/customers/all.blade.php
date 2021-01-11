@@ -10,8 +10,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     
-                    <div class="mb-8">
-                        <a href="/customer/create" class="px-4 py-2 bg-blue-600 text-white rounded-sm hover:bg-blue-700">New customer</a>
+                    <div class="flex justify-between">
+                        <div class="mb-8">
+                            <a href="/customer/create" class="px-4 py-2 bg-blue-600 text-white rounded-sm hover:bg-blue-700">New customer</a>
+                        </div>
+
+                        <div>
+                            <input type="text" id="customer_filter_input"  placeholder="search" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
                     </div>
 
                     <table class="table-auto w-full border border-gray-200 border-collapse">
@@ -27,7 +33,7 @@
                         </thead>
                         <tbody x-ref="tbody">
                             @foreach ($customers as $c)
-                                <tr class="border-b border-gray-100 hover:bg-gray-100">
+                                <tr class="border-b border-gray-100 hover:bg-gray-100 customer--tr" data-customer="{{ Str::lower($c->firstname . ' ' . $c->lastname) }}">
                                     <td class="p-4">{{ $c->firstname }} {{ $c->lastname }}</td>
                                     <td class="p-4">{{ $c->email }}</td>
                                     <td class="p-4">{{ $c->telephone }}</td>

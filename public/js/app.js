@@ -3793,7 +3793,61 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js"); // Search countries
+
+
+var country_filter_input = document.querySelector('#country_filter_input') ? document.querySelector('#country_filter_input') : false;
+var countries_cards = document.querySelectorAll('.country--card') ? document.querySelectorAll('.country--card') : false;
+
+if (country_filter_input) {
+  country_filter_input.addEventListener('keyup', function (e) {
+    countries_cards.forEach(function (card) {
+      var country = card.dataset.country;
+
+      if (country.includes(e.target.value.toLowerCase())) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+} // Search customers
+
+
+var customer_filter_input = document.querySelector('#customer_filter_input') ? document.querySelector('#customer_filter_input') : false;
+var customer_tr = document.querySelectorAll('.customer--tr') ? document.querySelectorAll('.customer--tr') : false;
+
+if (customer_filter_input) {
+  customer_filter_input.addEventListener('keyup', function (e) {
+    customer_tr.forEach(function (tr) {
+      var customer = tr.dataset.customer;
+
+      if (customer.includes(e.target.value.toLowerCase())) {
+        tr.style.display = '';
+      } else {
+        tr.style.display = 'none';
+      }
+    });
+  });
+} // Search cities
+
+
+var city_filter_input = document.querySelector('#city_filter_input') ? document.querySelector('#city_filter_input') : false;
+var city_tr = document.querySelectorAll('.city--tr') ? document.querySelectorAll('.city--tr') : false;
+
+if (city_filter_input) {
+  city_filter_input.addEventListener('keyup', function (e) {
+    city_tr.forEach(function (tr) {
+      var city = tr.dataset.city;
+
+      if (city.includes(e.target.value.toLowerCase())) {
+        tr.style.display = '';
+      } else {
+        tr.style.display = 'none';
+      }
+    });
+  });
+}
 
 /***/ }),
 

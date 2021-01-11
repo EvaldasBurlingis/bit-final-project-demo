@@ -10,13 +10,18 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     
-                    <div class="mb-8">
-                        <a href="/country/create" class="px-4 py-2 bg-blue-600 text-white rounded-sm hover:bg-blue-700">Add Country</a>
+                    <div class="mb-8 flex justify-between">
+                        <div>
+                            <a href="/country/create" class="px-4 py-2 bg-blue-600 text-white rounded-sm hover:bg-blue-700">Add Country</a>
+                        </div>
+                        <div>
+                            <input type="text" id="country_filter_input"  placeholder="search" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         @foreach ($countries as $country)
-                            <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                            <div class="bg-white shadow overflow-hidden sm:rounded-lg country--card" data-country="{{ Str::lower($country->name) }}">
                                 <div class="px-4 py-5 sm:px-6">
                                 <h3 class="text-lg leading-6 font-medium text-gray-900">
                                     Country information
