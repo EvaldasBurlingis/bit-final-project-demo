@@ -4,7 +4,6 @@ Travel agency platform, that allows travel agents to add customers, destinantion
 
 Built using laravel, with breeze as auth scaffold and tailwindcss for styling. 
 
-**Takeawys**
 Built in **5 Hours**. Not enough time to add request data validation, use repository pattern adn write tests.
 
 ## Requirements
